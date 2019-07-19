@@ -1,6 +1,6 @@
 
 CC = g++
-CFLAGS = -c -Wall
+CFLAGS = -c -Wall #-DDEBUG_PRINTF
 LIBS = -lrf24-bcm
 SOURCES =  PL1167_nRF24.cpp MiLightRadio.cpp openmilight.cpp
 BIN = openmilight
