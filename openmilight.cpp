@@ -70,7 +70,7 @@ void send(uint8_t data[16], uint8_t length, uint8_t resends)
 
 }
 
-void udp_raw()
+void udp_raw(uint8_t resends)
 {
   int sockfd;
   struct sockaddr_in servaddr, cliaddr;
@@ -98,7 +98,7 @@ void udp_raw()
       for(int i = 0; i < 9; i++){
         data[i] = (uint8_t)mesg[i];
       }
-      send(data, n, 5);
+      send(data, n, resends);
     }
     else {
       fprintf(stderr, "Message has invalid size %d (expecting 9)!\n", n);
@@ -200,7 +200,7 @@ int main(int argc, char** argv)
  
   if(do_udp){
     printf("UDP mode (raw), press Ctrl-C to end\n"); 
-    udp_raw();
+    udp_raw(resends);
   } 
 
   if(do_command){
